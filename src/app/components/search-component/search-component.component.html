@@ -4,6 +4,7 @@
   <input
     id="search-box"
     #searchInput
+    (input)="searchEmitter.next(searchInput.value)"
   />
 </div>
 

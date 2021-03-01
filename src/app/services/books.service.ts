@@ -13,11 +13,15 @@ export class BookService {
 
   // Gets all the books from our mock server
   getBooks(): Observable<Book[]> {
-    return null;
+    return this.http.get<Book[]>(this.booksUrl);
   }
 
   search(term$: Observable<string>): Observable<Book[]> {
-    return null;
+    // -a--- {a: 'angular'}
+    // -http
+    return term$.pipe(
+      switchMap((term) => this.http.get<Book[]>(this.searchByTitleUrl + term))
+    );
   }
 
   // Gets a book by its id from our mock server

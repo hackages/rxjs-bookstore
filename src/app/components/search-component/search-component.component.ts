@@ -1,4 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Component, Output, EventEmitter, Input } from "@angular/core";
+import { Subject } from "rxjs";
 
 @Component({
   selector: "bs-search-component",
@@ -7,4 +8,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class SearchComponentComponent {
   constructor() {}
+
+  @Input()
+  searchEmitter: Subject<string>;
 }
